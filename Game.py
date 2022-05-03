@@ -1,8 +1,8 @@
-
 class Game:
 
     def __init__(self):
-        pass
+        self.board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        self.turn = 1
 
     def __repr__(self):
         pass

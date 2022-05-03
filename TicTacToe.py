@@ -1,4 +1,5 @@
 from Ui import Gui, Terminal
+from Game import Game
 from sys import argv
 
 def usage():   
@@ -9,4 +10,12 @@ t : play with the Terminal""")
     quit()
 
 if __name__ == "__main__":
-    pass
+    if len(argv) != 2:
+        usage()
+    elif argv[1] == "g":
+        pass
+    elif argv[1] == "t":
+        ui = Terminal()
+        ui.run()
+    else:
+        usage()
