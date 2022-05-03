@@ -26,4 +26,12 @@ class Terminal(Ui):
                 print(f"{game.board[row][0]}|{game.board[row][1]}|{game.board[row][2]}")
                 if row != 2:
                     print("-+-+-")
-            break
+            play = False
+            while not play:
+                row = int(input("row: "))
+                col = int(input("col: "))
+                play = game.play(row-1, col-1)
+            if game.turn == 1:
+                game.turn = 2
+            elif game.turn == 2:
+                game.turn = 1
