@@ -20,6 +20,7 @@ class Terminal(Ui):
 
     def run(self):
         game = Game()
+        turn = 0
         while True:
             print(f"it is player {game.turn} turn")
             for row in range(len(game.board)):
@@ -31,6 +32,17 @@ class Terminal(Ui):
                 row = int(input("row: "))
                 col = int(input("col: "))
                 play = game.play(row-1, col-1)
+            turn +=1
+            if game.winner():
+                print(f"player {game.turn} won the game")
+                break
+            if turn == 9:
+                print("its a draw")
+                for row in range(len(game.board)):
+                    print(f"{game.board[row][0]}|{game.board[row][1]}|{game.board[row][2]}")
+                    if row != 2:
+                        print("-+-+-")
+                break
             if game.turn == 1:
                 game.turn = 2
             elif game.turn == 2:

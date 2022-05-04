@@ -14,14 +14,30 @@ class Game:
                     self.board[row][col] = "X"
                 else:
                     self.board[row][col] = "O"
-            return True
+                return True
         return False
         
     
-    @property
     def winner(self):
         for row in self.board:
-            ...
+            if (row[0] == row[1] == row[2]) and self.token(row[1]):
+                return True
+        for item in range(3):
+            if (self.board[0][item] == self.board[1][item] == self.board[2][item]) and self.token(self.board[0][item]):
+                return True
+        if (self.board[0][0] == self.board[1][1] == self.board[2][2]) and self.token(self.board[0][0]):
+            return True
+        elif (self.board[0][2] == self.board[1][1] == self.board[2][0]) and self.token(self.board[0][2]):
+            return True
+        else:
+            return False
+
+
+    def token(self, item):
+        if item == "X" or item == "O":
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
