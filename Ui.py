@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 from Game import Game
+import tkinter as tk
+from tkinter import N, W, E, S, ttk
 
 class Ui(ABC):
 
@@ -9,10 +11,17 @@ class Ui(ABC):
 
 class Gui(Ui):
     def __init__(self):
-        pass
+        self.root = tk.Tk()
+        self.root.title("tictactoe")
+        self.mainframe = ttk.Frame(self.root, padding="3 3 12 12")
+        self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+        self.root.columnconfigure(0, weight=1)
+        self.root.rowconfigure(0, weight=1)
+
 
     def run(self):
-        pass
+        self.root.mainloop()
+        
 
 class Terminal(Ui):
     def __init__(self):
